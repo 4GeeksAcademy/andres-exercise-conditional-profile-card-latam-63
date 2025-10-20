@@ -35,7 +35,9 @@ function render(variables = {}) {
   if (variables.lastName == null) {
     variables.lastName = "Doe";
   }
-  let fullname = `${variables.name} ${variables.lastName}`;
+  let fullname = `${variables.name.charAt(0).toUpperCase() +
+    variables.name.slice(1)} ${variables.lastName.charAt(0).toUpperCase() +
+    variables.lastName.slice(1)}`;
 
   if (variables.role == null) {
     variables.role = "Role";
