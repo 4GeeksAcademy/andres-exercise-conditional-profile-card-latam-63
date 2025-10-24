@@ -26,52 +26,49 @@ function render(variables = {}) {
   console.log("These are the current variables: ", variables); // print on the console
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
+  variables.background =
+    "https://schertzanimalhospital.com/wp-content/uploads/2018/03/Schertz_iStock-836716796_medium-1024x639.jpg";
+
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
-  if (variables.name == null) {
-    variables.name = "John";
-  }
-  if (variables.lastName == null) {
-    variables.lastName = "Doe";
-  }
+  variables.avatarURL =
+    "https://www.thesprucepets.com/thmb/A5Rkkt4HDWLAtUOk4gYybcX02mM=/1080x0/filters:no_upscale():strip_icc()/30078352_448703938920062_6275637137232625664_n-5b0de8c443a1030036f9e15e.jpg";
+
+  variables.name == null ? (variables.name = "John") : variables.name;
+
+  variables.lastName == null
+    ? (variables.lastName = "Doggo")
+    : variables.lastName;
+
   let fullname = `${variables.name.charAt(0).toUpperCase() +
     variables.name.slice(1)} ${variables.lastName.charAt(0).toUpperCase() +
     variables.lastName.slice(1)}`;
 
-  if (variables.role == null) {
-    variables.role = "Role";
-  }
-  let role = variables.role;
+  let role =
+    variables.role == null
+      ? (variables.role = "Professional Sniffer")
+      : variables.role;
 
-  if (variables.city == null) {
-    variables.city = "City";
-  }
-  if (variables.country == null) {
-    variables.country = "Country";
-  }
+  variables.city == null ? (variables.city = "City") : variables.city;
+
+  variables.country == null
+    ? (variables.country = "Country")
+    : variables.country;
 
   let residence = `${variables.city}, ${variables.country}`;
 
-  if (variables.socialMediaPosition == "left") {
-    variables.socialMediaPosition = "position-left";
-  } else if (variables.socialMediaPosition == "right") {
-    variables.socialMediaPosition = "position-right";
-  }
   let position = variables.socialMediaPosition;
 
-  if (variables.twitter == null) {
-    variables.twitter = "";
-  }
-  if (variables.github == null) {
-    variables.github = "";
-  }
-  if (variables.linkedin == null) {
-    variables.linkedin = "";
-  }
-  if (variables.instagram == null) {
-    variables.instagram = "";
-  }
+  variables.twitter == null ? (variables.twitter = "") : variables.twitter;
+
+  variables.github == null ? (variables.github = "") : variables.github;
+
+  variables.linkedin == null ? (variables.linkedin = "") : variables.linkedin;
+
+  variables.instagram == null
+    ? (variables.instagram = "")
+    : variables.instagram;
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
